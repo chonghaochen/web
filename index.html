@@ -1,0 +1,265 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="UTF-8">
+
+  <!-- import CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+<style>
+.top{
+    /* 设置宽度高度背景颜色 */
+    float:left;
+    height: auto; /*高度改为自动高度*/
+    width:100%;
+    margin-left: 0;
+    background:#E0FFFF;
+    position: fixed; /*固定在顶部*/
+    top: 0;/*离顶部的距离为0*/
+    margin-bottom: 5px;
+}
+.top ul{
+    /* 清除ul标签的默认样式 */
+    width: auto;/*宽度也改为自动*/
+    list-style-type: none;
+    white-space:nowrap;
+    overflow: hidden;
+    margin-left: 5%;
+    /* margin-top: 0;          */
+    padding: 0;
+
+}
+.top li {
+    float:left; /* 使li内容横向浮动，即横向排列  */
+    margin-right:10%;  /* 两个li之间的距离*/
+    position: relative;
+    overflow: hidden;
+}
+
+.top li a{
+   /* 设置链接内容显示的格式*/
+    display: block; /* 把链接显示为块元素可使整个链接区域可点击 */
+    color:#008080;
+    text-align: center;
+    padding: 3px;
+    overflow: hidden;
+    text-decoration: none; /* 去除下划线 */
+    
+}
+.top li a:hover{
+    /* 鼠标选中时背景变为黑色 */
+    background-color: #111;
+}
+
+.top ul li ul li{
+    /* 二级菜单li内容的显示 */
+    
+    float:none;
+    text-align: center;
+}
+.top ul li:hover ul{
+    /* 鼠标选中二级菜单内容时 */
+    display: block;
+}
+.body .top{
+    background:#dfffff;
+}
+
+.pangbian{
+	padding-top:54px;
+	
+	
+	width:100%;
+	height:100px;
+}
+.sidebar{
+  
+  position: fixed; 
+  width: 215px; height: 100%; background: #262930; 
+  transition: all .3s ease;
+}
+.sidebar > h4{
+  margin: 0; padding: 18px 10px;
+  background: #00bfa5; color: #fff; font-size: 18px;  
+  white-space: nowrap;
+}
+.cover{
+  padding-top:40px; padding-bottom: 10px;
+  text-align: center;  background: #20242c; 
+}
+.cover > h2{
+  position: relative; 
+  margin: 0 auto; max-height: 80px; max-width: 80px; 
+  background: #3d4147; border: 1px solid #1ab394; border-radius: 50%;
+}
+.cover > h2 img{
+  position: relative; z-index: 100; 
+  width: 100%; margin-left: -5px;
+  border: 1px solid #1ab394; 
+}
+.cover > h2:after{
+  content:''; 
+  position: absolute; left: -12px; top: -8px; 
+  height: 96px; width: 96px; 
+  background: #3d4147; border-radius: 50%; 
+}
+.cover > b{
+  display: block;
+  margin-top: 20px; 
+  color: #f3f3f4; font-size: 13px; 
+}
+.cover > p{ margin-top: 4px;color: #acb0b8; font-size: 12px;}
+
+/*sidenav*/
+.sidenav,.sidebar-dropdown{padding: 0; }
+.sidenav a{color: #9d9d9d; }
+.sidenav > li > a{
+  display: block; padding: 10px;
+  font-size: 14px; border-left: 2px solid transparent; 
+  transition: .3s linear; 
+}
+.sidenav > li > a > i{margin-right: 10px;}
+.sidenav > li > a.hover,
+.sidenav > li > a:hover{
+  border-left: 2px solid #21b496; background: #20242c; text-decoration: none;
+}
+.iright{margin-top: 4px; font-family:"宋体"; font-style: normal; }
+.sidebar-dropdown{
+  display: none;
+  font-size: 14px; background: #20242c; border-left: 2px solid #21b496; }
+.sidebar-dropdown > li > a{display: block; padding: 10px 0 10px 36px;}
+
+/*伸缩侧边css代码*/
+.sidebar-collapse .main{margin-left: 60px;}
+.sidebar-collapse .sidebar{width: 60px;}
+.sidebar-collapse .sidenav > li{position: relative; z-index: 9999; text-align: center;}
+.sidebar-collapse .sidenav > li:hover > a{border-left: 2px solid #21b496; background: #20242c; text-decoration: none;}
+.sidebar-collapse .sidenav > li:hover .sidebar-dropdown{display: block!important;}
+.sidebar-collapse .cover > b{font-size: 12px;}
+.sidebar-collapse .cover > p,
+.sidebar-collapse .sidespan,
+.sidebar-collapse .iright,
+.sidebar-collapse .cover > h2:after{
+    display: none;
+}
+.sidebar-collapse .cover{padding-top: 30px;}
+.sidebar-collapse .cover > h2{margin: 6px;}
+.sidebar-collapse .sidebar-dropdown{
+  position: absolute; top: 0; left: 60px; z-index: 9999;
+  display: none!important;
+  width: 150px; border-left: none; list-style: none;   
+}
+.sidebar-collapse .sidebar-dropdown > li > a{padding-left: 0; }
+.sidebar-collapse .sidebar-dropdown > li > a:hover{background: #191e26; text-decoration: none; color: #fff;}
+.sidebar-collapse .cover > h2 img{margin-left: 0; border: none;}
+/* main
+ ---------------------------------------- */
+.main{overflow: hidden; margin-left: 215px; transition: all .3s ease; padding-top: 0px; }
+.pangbian1{
+  padding-top: 1000px;
+  padding-left: 500px;
+}
+
+</style>
+</head>
+<body>
+<div class="top">
+                   <center> 
+                    <ul>
+                    <li><a href="#"><b>首页</b></a></li>
+                    <li><a href="#"><b>课程</b></a></li>
+                    <li><a href="#"><b>学校</b></a></li>
+                    <li><a href="#"><b>下载中心</b></a></li>
+                    <li><a href="#"><b>交流中心</b></a></li>
+                    <li>
+                        <a href="#"><b>联系我们</b></a>
+                        
+                    </li>        
+                      </ul>
+                    </center>      
+            </div>
+
+<div class="pangbian">
+
+	<div class="container-fluid">
+    <div class="row">
+        <!-- 侧边栏 -->
+        <div class="sidebar">
+            
+            <ul class="sidenav animated fadeInUp">
+                <li><a class="withripple" href=""><i class="icon icon-home"></i><span class="sidespan">首页</span></a></li>                
+                <li><a class="withripple hover" href="javascript:;"><i class="icon icon-article"></i><span class="sidespan">HTML设计</span><i class="iright pull-right">&gt;</i></a>
+                    <ul class="sidebar-dropdown">
+                        <li><a href="list.html" class="withripple" target="myframe">文章列表</a></li>
+                        <li><a href="add.html" class="withripple" target="myframe">添加文章</a></li>
+                    </ul>
+                </li>
+                <li><a class="withripple" href="javascript:;"><i class="icon icon-ui"></i><span class="sidespan">UI设计</span><i class="iright pull-right">&gt;</i></a>
+                    <ul class="sidebar-dropdown">
+                        <li><a href="" class="withripple">UI设计列表</a></li>
+                        <li><a href="" class="withripple">添加作品</a></li>
+                    </ul>
+                </li>
+                <li><a class="withripple" href="javascript:;"><i class="icon icon-web"></i><span class="sidespan">WEB前端</span><i class="iright pull-right">&gt;</i></a>
+                    <ul class="sidebar-dropdown">
+                        <li><a href="" class="withripple">文章列表</a></li>
+                        <li><a href="" class="withripple">添加WEB作品</a></li>
+                    </ul>
+                </li>
+                <li><a class="withripple" href="javascript:;"><i class="icon icon-php"></i><span class="sidespan">PHP后台</span><i class="iright pull-right">&gt;</i></a>
+                    <ul class="sidebar-dropdown">
+                        <li><a href="" class="withripple">PHP项目</a></li>
+                        <li><a href="" class="withripple">添加项目</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- 侧边栏 完-->
+<!-- 主体部分  -->
+        <div class="main"><video id="videoPlayer" width="100%" height="680" controls="controls">
+        <source src="C:\Users\chonghao chen\Desktop\aaa.mp4" type="video/mp4">
+        </video>
+        </div>
+
+        <div class="pangbian1">
+          <span>Multiline message is:</span>
+              <p>{{ message}}</p><br>
+              <textarea v-model="message" placeholder="add multiple lines"></textarea>
+        </div>
+
+
+</div>
+</div>
+
+</body>
+  <!-- import Vue before Element -->
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <!-- import JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script type="text/javascript">
+    
+        //监听播放时间
+        var video = document.getElementById('videoPlayer');
+        //使用事件监听方式捕捉事件
+        video.addEventListener("timeupdate", function () {
+            var timeDisplay;
+            //用秒数来显示当前播放进度
+    
+            timeDisplay = video.currentTime;
+            console.log(video.currentTime);
+            //当视频播放到 4s的时候做处理
+            if (3 < timeDisplay) {
+                //处理代码
+                video.pause();
+                prompt("这是弹框③吗？","是的");
+                removeEventListener("timeupdate",video);
+                
+            }
+            video.play();
+            removeEventListener("timeupdate",video);
+            video.removeEventListener("timeupdate",video);
+            removeEventListener();
+        }, false)
+      
+  </script>
